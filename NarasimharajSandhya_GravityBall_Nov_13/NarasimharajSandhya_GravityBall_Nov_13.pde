@@ -4,8 +4,8 @@ void setup() {
   size(800, 500);
   x = width/2;
   y = height*.25;
-  velX = 0;
-  velY = 0;
+  velX = 3;
+  velY = 1;
   sz = 20;
   gravity = 1;
 }
@@ -19,6 +19,12 @@ void draw() {
 
   if (y > height+sz/2) {
     velY = -abs(velY);
+  }
+  if (x > width+sz/2) {
+    velX = -abs(velX);
+  }
+  if (x < 0 - sz/2) {
+    velX = abs(velX);
   }
 }
 
