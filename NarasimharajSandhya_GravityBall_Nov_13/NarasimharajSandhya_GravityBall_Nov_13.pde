@@ -17,13 +17,13 @@ void draw() {
   x += velX;
   y += velY;
 
-  if (y > height+sz/2) {
+  if (y + sz/2 > height) {
     velY = -abs(velY);
   }
-  if (x > width+sz/2) {
+  if (x + sz/2 > width) {
     velX = -abs(velX);
   }
-  if (x < 0 - sz/2) {
+  if (x - sz/2 < 0) {
     velX = abs(velX);
   }
 }
