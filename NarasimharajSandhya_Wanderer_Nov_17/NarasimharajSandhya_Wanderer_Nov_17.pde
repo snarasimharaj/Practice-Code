@@ -5,6 +5,8 @@ int sz = 30;
 
 void setup() {
   colorMode(HSB,360,100,100,100); 
+  background(245,29, 99);
+  noStroke();
   size(800, 500);
   //noStroke();
 
