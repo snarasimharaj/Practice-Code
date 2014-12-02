@@ -1,29 +1,48 @@
-float x, y, velX, velY, gravity, sz;
+GravityBall[] s = new GravityBall[100];
 
 void setup() {
   size(800, 500);
-  x = width/2;
-  y = height*.25;
-  velX = 3;
-  velY = 1;
-  sz = 20;
-  gravity = 1;
+  for (int i = 0; i < s.length; i++) {
+    s[i] = new GravityBall();
+  }
 }
-
 void draw() {
   background(0);
-  ellipse(x, y, sz, sz);
-  velY += gravity;
-  x += velX;
-  y += velY;
-
-  if (y + sz/2 > height) {
-    velY = -abs(velY);
-  }
-  if (x + sz/2 > width) {
-    velX = -abs(velX);
-  }
-  if (x - sz/2 < 0) {
-    velX = abs(velX);
+  for (int i = 0; i < s.length; i++) {
+    s[i].display();
+    s[i].move();
+    s[i].bounce();
   }
 }
+
+
+
+class GravityBall {
+
+  PVector loc, vel, acc;
+  float sz;
+
+  GravityBall() {
+    sz = 30;
+    loc = new PVector(random(width),random(height/2));
+    vel = new PVector(0, 0);
+    acc = new PVector(0, .2);
+  }
+
+  void display() {
+    ellipse(loc.x, loc.y, sz, sz);
+  }
+  
+  void move(){
+    vel.add(acc);
+    loc.add(vel);
+  }
+  
+  void bounce(){
+    if(loc.y+sz/2> height){
+      loc.y = height - sz/2;
+      vel.y = -abs(vel.y);
+    }
+  }
+}
+    
