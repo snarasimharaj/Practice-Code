@@ -1,5 +1,5 @@
 int count = 200;
-PImage snowlake;
+PImage snowflake;
 PVector[] loc = new PVector[count];
 PVector[] vel = new PVector[count];
 PVector[] acc = new PVector[count];
@@ -21,7 +21,7 @@ void draw() {
   for (int i = 0; i<count; i++) {
     vel[i].add(acc[i]);
     loc[i].add(vel[i]);
-    ellipse(loc[i].x, loc[i].y, sz[i], sz[i]);
+    image(snowflake, loc[i].x, loc[i].y, sz[i]*2, sz[i]*2);
     acc[i].x = random(-.1, .1);
     if (loc[i].y - sz[i]/2 > height) {
       loc[i].set(random(width), random(height-sz[i]/2));
