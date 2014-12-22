@@ -12,6 +12,7 @@ void draw() {
     bouncers[i].display();
     bouncers[i].move();
     bouncers[i].wallBounce();
-    for(int j = 0; j < bouncers.l
+    for(int j = 0; j < bouncers.length; j++){
+      
   }
 
