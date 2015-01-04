@@ -27,8 +27,8 @@ class Particle {
 
   Particle() {
     loc = new PVector(mouseX, mouseY);
-    vel = new PVector(random(-4, 4), random(-3, -1));
-    acc = new PVector(0, .3);
+    vel = new PVector(random(0, 4), random(-3, -1));
+    acc = new PVector(0, -.3);
     sz = 20;
   }
 
