@@ -2,9 +2,7 @@ ArrayList<Particle> allParticles = new ArrayList<Particle>();
 
 void setup() {
   size(800, 500);
-  //  for (int i = 0; i< allParticles.length; i++) {
-  //    allParticles[i] = new Particle();
-  //  }
+
 }
 
  
