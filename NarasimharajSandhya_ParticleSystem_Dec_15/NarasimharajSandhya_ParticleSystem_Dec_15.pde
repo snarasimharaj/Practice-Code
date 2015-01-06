@@ -1,24 +1,22 @@
-ArrayList<Particle> allParticles = new ArrayList<Particle>();
+ArrayList<Particle> allParticles = new ArrayList<Particle>();    //declare new arraylist
+PImage fish;                                                     //declare image fish
+PImage ocean;                                                    //declare image ocean
 
 void setup() {
+<<<<<<< HEAD
   size(800, 500);
 
 }
-
- 
-void draw() {
-  background(0);
-  if (mousePressed) {
-    allParticles.add(new Particle());
-  }
-  for (int i = 0; i < allParticles.size (); i++) {
-    Particle currentParticle = allParticles.get(i);
-    currentParticle.display();
-    currentParticle.move();
-  }
-}
+=======
+  size(800, 500);                                                //size of display
+  fish = loadImage("fish1.png");                                 //load image fish
+  ocean = loadImage("ocean.jpg");                                //load image ocean
+}  
+>>>>>>> FETCH_HEAD
 
 
+
+<<<<<<< HEAD
 class Particle {
   PVector loc, vel, acc;
   float sz;
@@ -29,15 +27,25 @@ class Particle {
     acc = new PVector(0, -.3);
     sz = 20;
   }
+=======
+void draw() {
+  background(0);                                                 //add background
+  image(ocean, 0, 0, 800, 500);                                  //display image ocean
+  image(fish, 200, 50, fish.width/5, fish.width/5);              //display image fish
+>>>>>>> FETCH_HEAD
 
-  void display() {
-    ellipse(loc.x, loc.y, sz, sz);
+  if (mousePressed) {                                            //make bubbles when mouse is pressed
+    allParticles.add(new Particle(random(5, 15)));
   }
-
-  void move() {
-    loc.add(vel);
-    vel.add(acc);
+  for (int i = allParticles.size ()-1; i>= 0; i--) {             //go through arraylist
+    Particle currentParticle = allParticles.get(i);              //get particle out of arraylist from the class
+    currentParticle.display();                                   //display particle
+    currentParticle.move();                                      //move particle
+    if (currentParticle.pop()) {                                 //if pop is true...
+      allParticles.remove(i);                                    //remove particle
+    }
   }
+  noCursor();
 }
 
 
